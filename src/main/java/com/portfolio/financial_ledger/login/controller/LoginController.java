@@ -1,9 +1,11 @@
 package com.portfolio.financial_ledger.login.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller()
+@RequiredArgsConstructor
 public class LoginController {
 
     @GetMapping("/login")
@@ -11,14 +13,5 @@ public class LoginController {
         return "login/login";
     }
 
-    @GetMapping( "/test")
-    public String test() {
-        return "index";
-    }
-
-//    @GetMapping("/test")
-//    public String index() {
-//        return "index";
-//    }
 
 }
