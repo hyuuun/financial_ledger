@@ -20,10 +20,10 @@ public class SettingEntity implements UserDetails {
 
     @Id
     @Column(name = "setting_key", length = 20)
-    private String settingKey;
+    String settingKey;
 
     @Column(name = "setting_value",  nullable = false, length = 60)
-    private String settingValue;
+    String settingValue;
 
 
     @Override
@@ -33,7 +33,7 @@ public class SettingEntity implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return this.getPassword();
     }
 
     @Override
