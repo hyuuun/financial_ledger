@@ -8,13 +8,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class FinancialLedgerApplication {
 
 	public static void main(String[] args) {
-		String plainText = "admin";
-
-		System.out.println(new BCryptPasswordEncoder().encode(plainText).toString());
-
-		// $2a$10$zd5OZ9ehAFyVPfC8rXcUcerIqCtghU5ZIdzMAQ8xQgMDI9zK1y0f.
-		// admin
-
 		SpringApplication.run(FinancialLedgerApplication.class, args);
 	}
 
