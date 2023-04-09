@@ -1,5 +1,6 @@
 package com.portfolio.financial_ledger.login.service;
 
+import com.portfolio.financial_ledger.setting.dto.SettingDto;
 import com.portfolio.financial_ledger.setting.entity.SettingEntity;
 import com.portfolio.financial_ledger.setting.repository.SettingRepository;
 import lombok.AllArgsConstructor;
@@ -29,5 +30,21 @@ public class LoginService implements UserDetailsService { //
                 .roles("ADMIN")
                 .build();
 
+    }
+
+    public boolean changePassword(SettingDto settingDto) {
+
+        SettingEntity settingEntity = settingRepository.findBySettingKey(settingDto.getSetting_key());
+
+        if(settingEntity != null) {
+            settingDto.encryptPassword();
+            settingEntity.toEntity(settingDto);
+
+            settingRepository.save(settingEntity);
+
+            return true;
+        }
+
+        return false;
     }
 }

@@ -1,6 +1,6 @@
 package com.portfolio.financial_ledger.configure;
 
-import com.portfolio.financial_ledger.login.service.LoginService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -32,7 +32,7 @@ public class SecurityConfig {
         // 로그인 관련 처리
         http.formLogin()
                 .usernameParameter("setting_key")
-                .passwordParameter("password")
+                .passwordParameter("setting_value")
                 .loginPage("/login")
                 .failureUrl("/login/error")
                 .defaultSuccessUrl("/dashboard");
