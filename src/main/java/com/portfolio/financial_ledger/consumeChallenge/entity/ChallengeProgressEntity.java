@@ -19,9 +19,6 @@ public class ChallengeProgressEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int seq;
 
-//    @Column(nullable = false)
-//    private int challenge_seq;
-
     @ColumnDefault(value = "0")
     private int spent_money;
 
