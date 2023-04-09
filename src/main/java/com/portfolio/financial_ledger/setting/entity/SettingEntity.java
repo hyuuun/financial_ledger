@@ -1,5 +1,6 @@
 package com.portfolio.financial_ledger.setting.entity;
 
+import com.portfolio.financial_ledger.setting.dto.ChangePasswordDto;
 import com.portfolio.financial_ledger.setting.dto.SettingDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,7 +33,7 @@ public class SettingEntity implements UserDetails {
 
     @Override
     public String getPassword() {
-        return this.getPassword();
+        return this.settingValue;
     }
 
     @Override
@@ -63,6 +64,13 @@ public class SettingEntity implements UserDetails {
     public SettingEntity toEntity(SettingDto settingDto) {
         this.settingKey = settingDto.getSetting_key();
         this.settingValue = settingDto.getSetting_value();
+
+        return this;
+    }
+
+    public SettingEntity toEntity(ChangePasswordDto changePasswordDto) {
+        this.settingKey = changePasswordDto.getSetting_key();
+        this.settingValue = changePasswordDto.getNewPassword();
 
         return this;
     }
